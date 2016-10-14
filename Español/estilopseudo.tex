@@ -1,0 +1,82 @@
+
+\lstdefinelanguage{pseudocodigoesp}
+                  {
+                    morecomment= [l]{//},
+                   morecomment= [s]{/*}{*/},
+                   morestring=[b]",
+                    commentstyle = \color{ccomentarios},
+                    keywords =
+                    { Algoritmo,
+                      fin_algoritmo,
+                      inicio,
+                      var,
+                      tipo,
+                      principal,
+                      fin_principal,
+                      div,
+                      mientras,
+                      hacer,
+                      fin_mientras,
+                      repetir,
+                      hasta_que,
+                      desde,
+                      hasta,
+                      fin_desde,
+                      si,
+                      si_no,
+                      fin_si,
+                      segun_sea,
+                      fin_segun,
+                      en_otro_caso,
+                      entonces,
+                      vector,
+                      de,
+                      matriz,
+                      entero,
+                      real,
+                      logico,
+                      caracter,
+                      cadena,
+                      funcion,
+                      fin_funcion,
+                      devolver,
+                      procedimiento,
+                      fin_procedimiento,
+                      registro,
+                      fin_registro,
+                      escribir,
+                      leer,
+                      archivo,
+                      concatena,
+                      abrir,
+                      cerrar,
+                      feof,
+                      const,
+                      tipos},
+                      morecomment= [l]{//},
+                      morecomment= [s]{/*}{*/},
+                      literate={
+                      {<-}{{\textcolor{red}{{$\leftarrow$}}}}2
+                      {<=}{{$\textcolor{red}{\leq}$}}1
+                      {>=}{{$\textcolor{red}{\geq}$}}1
+                      {!=}{{$\textcolor{red}{\neq}$}}1
+                      {+}{{\textcolor{red}{+}}}1
+                      {-}{{\textcolor{red}{-}}}1
+                    %  {*}{{\textcolor{red}{*}}}1
+                      {=}{{$\textcolor{red}{=}$}}2
+                      {E real:}{{$\texttt{\textcolor{blue}{E entero:}}$}}9
+                      {entero:}{{$\texttt{\textcolor{blue}{entero:}}$}}6
+                      {logico:}{{$\texttt{\textcolor{blue}{logico:}}$}}6
+                      {real:}{{$\texttt{\textcolor{blue}{real:}}$}}3
+                      {caracter:}{{$\texttt{\textcolor{blue}{caracter:}}$}}8
+                      }
+                      ,
+                   morestring=[b]",
+                   showstringspaces=false,
+                    commentstyle = \color{ccomentarios},
+                  }
+                  \lstset{
+                    basicstyle = {\small\ttfamily},
+                    keywordstyle = \color{blue}\textbf,
+                    stringstyle = \ttfamily\color{ccomentarios},
+                  }

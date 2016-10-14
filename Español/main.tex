@@ -1,0 +1,1159 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{amsfonts}
+
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+
+
+
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\rhead{\small\emph{\nouppercase{\rightmark}}}
+\lhead{\small\emph{\nouppercase{\leftmark}}}
+\usepackage[titletoc]{appendix}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[a4paper,width=130mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{listings}
+\definecolor{azulpseudo}{HTML}{1919FF}
+\definecolor{secnaranja}{HTML}{FFA500}
+\definecolor{ccomentarios}{HTML}{009900}
+\newcommand{\pkeyword}[1]{\textcolor{azulpseudo}{\texttt{\textbf{#1}}}}
+\input{estilopseudo.tex}
+%Opciones generales del documento
+\setlength\parindent{0pt}
+\setlength\parskip{5pt}
+\usepackage{mflogo}
+\usepackage[bookmarksopen=true]{hyperref}
+
+\title{Resumen Pseudocódigo}
+\author{Antonio Vélez Estévez}
+\date{Julio 2016}
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+Este documento es un pequeño manual-resumen del pseudocódigo usado en la asignatura de Introducción a la Programación en la Universidad de Cádiz.
+\end{abstract}
+\tableofcontents
+\pagebreak
+\section{Vista general}
+La estructura general de un algoritmo en pseudocódigo es la siguiente:
+
+\begin{lstlisting}[language=pseudocodigoesp]
+Algoritmo nombreAlgoritmo
+    const
+        //sección de definición de constantes.
+    tipos
+        //sección de definición de tipos.
+    var
+        //sección de definición de variables globales.
+
+
+        //definición de funciones y procedimientos.
+principal
+    var
+        // sección de definición de variables locales a Principal.
+    inicio
+        // inicialización de variables...
+        // instrucciones del algoritmo principal...
+fin_principal
+
+fin_algoritmo
+\end{lstlisting}
+
+\section{Tipos de datos}
+En pseudocódigo disponemos de los tipos de datos simples y estructurados para diseñar nuestros programas.
+\subsection{Simples}
+\subsubsection{Numéricos}
+\paragraph{Enteros} es un subconjunto finito de los enteros ($\mathbb{Z}$), el rango disponible es: $$\left[-32768, 32768\right]$$
+
+Para declarar una variable de tipo entero en pseudocódigo usaremos la palabra reservada \pkeyword{entero}.
+
+\paragraph{Reales} es un subconjunto finito de los reales ($\mathbb{R}$), el rango disponible es: $$\left[ 1,17549\times 10^{-38}, 3,40282\times 10^{38} \right]$$
+
+
+Para declarar una variable de tipo real en pseudocódigo usaremos la palabra reservada \pkeyword{real}.
+
+\subsubsection{Lógicos}
+Este tipo de dato solo puede tener dos valores \textbf{verdadero} o \textbf{falso}, sobre él se pueden aplicar los operadores del algebra booleana
+\footnote{Conjunción, disyunción, negación y disyunción excluyente (habitualmente conocida como \textbf{XOR} de ``eXclusive OR'' ).}.
+
+Para declarar una variable de este tipo en pseudocódigo usaremos la palabra reservada \pkeyword{logico}.
+
+\subsubsection{Carácter}
+
+Puede representar los carácteres alfanuméricos especificados en el código ASCII\footnote{American Standart Code for Information Interchange.
+  El código ASCII utiliza 7 bits para representar los carácteres.}.
+
+Para declarar una variable de tipo carácter en pseudocódigo usaremos la palabra reservada \pkeyword{caracter}.
+
+\subsection{Estructurados}
+Los tipos de datos estructurados se definirán en la sección de definición de tipos, que está encabezada por la palabra reservada \pkeyword{tipos}.
+\subsubsection{Vectores}
+Un vector es un conjunto finito de elementos \textit{del mismo tipo}, que están almacenados consecutivamente y que pueden ser identificados de forma independiente.
+
+Para definir un vector en la sección de tipos usaremos la siguiente sintaxis:
+
+\begin{lstlisting}[language = pseudocodigoesp]
+vector [tamaño] de <tipo_dato> : <identificador_tipo_vector>  
+\end{lstlisting}
+
+Luego usaremos ese identificador para declarar el tipo de una variable.
+
+\textbf{Nota\footnote{En Vary debido a temas de diseño los vectores empiezan en la posición 0 al igual que en el lenguaje C.}:} los vectores en pseudocódigo empiezan en la posición 1.
+\subsubsection{Matrices}
+Una matriz multidimensional es una estructura homogénea, en la cual para hacer referencia a un elemento necesitamos dos o más índices dependiendo de su dimensión.
+
+Para definir una matriz en la sección de tipos usaremos la siguiente sintaxis:
+\begin{lstlisting}[language = pseudocodigoesp]
+matriz [tam1, ..., tamN] de <tipo_dato> : <identificador_tipo_matriz>
+\end{lstlisting}
+
+Para declarar una variable de dicho tipo usaremos el identificador que establezcamos.
+\subsubsection{Cadenas de caracteres}
+Una cadena de caracteres es una secuencia de caracteres consecutivos. Para declarar una variable como cadena debemos usar la palabra clave \pkeyword{cadena}.
+\begin{itemize}
+\item Se puede asignar a una variable de tipo \pkeyword{cadena} una constante de cadena.
+\item Se pueden usar las operaciones de lectura y escritura con cadenas de caracteres.
+\item Podemos calcular la longitud de una cadena con \pkeyword{longitud}(\#1).
+\item Se pueden comparar cadenas con los operadores relacionales conocidos\footnote{menor-que(<), mayor-que(>), igual(=), menor o igual ($\leq$), mayor o igual ($\geq$) y distinto ($\neq$).}.
+\item Podemos concatenar dos cadenas con \pkeyword{concatena}(\#1, \#2)
+\end{itemize}
+
+\subsubsection{Registros}
+Es una estructura de datos formada por un conjunto de elementos que contienen información relativa a algo. Los elementos que constituyen un \pkeyword{registro} se denominan \emph{campos} y cada campo puede ser de un tipo diferente.
+\pagebreak
+
+Para definir un \pkeyword{registro} en la sección de tipos usaremos la siguiente sintaxis:
+
+\begin{lstlisting}[language = pseudocodigoesp]
+registro : nombreRegistro
+    tipo1 : idCampo1
+    tipo2 : idCampo2
+          .
+    tipoN : idCampoN 
+fin_registro
+\end{lstlisting}
+
+Consideraciones:
+
+\begin{itemize}
+\item Se puede realizar la asignación entre dos registros completos siempre que sean del mismo tipo.
+\end{itemize}
+\subsubsection{Ficheros}
+Para definir un tipo de \pkeyword{fichero} en la sección de tipos usaremos la siguiente sintaxis:
+\begin{lstlisting}[language = pseudocodigoesp]
+archivo de tipo_dato : tipoFichero
+\end{lstlisting}
+
+Para abrir un fichero usaremos la funcion \pkeyword{abrir}() que asocia una variable de tipo fichero con un archivo. El formato de dicha función es el siguiente:
+\begin{lstlisting}[language = pseudocodigoesp]
+abrir(varFichero, modo, nombreFichero)
+\end{lstlisting}
+Donde:
+\begin{itemize}
+\item\textbf{\texttt{varFichero}} es la variable, declarada previamente a la que se le asociará el fichero físico.
+\item\textbf{\texttt{modo}} indica el modo de acceso al fichero(escritura o lectura).
+\item\textbf{\texttt{nombreFichero}} es el nombre del fichero que se encuentra almacenado en memoria masiva.
+\end{itemize}
+
+Para el manejo de ficheros disponemos de cuatro operaciones:
+
+\begin{itemize}
+\item \pkeyword{escribir}\texttt{(varFichero, elemento)}.
+\item \pkeyword{leer}\texttt{(varFichero, elemento)}.
+\item \pkeyword{feof}\texttt{(varFichero)}.
+\item \pkeyword{cerrar}\texttt{(varFichero)}.
+\end{itemize}
+\subsubsection{Enumerados}
+El uso de tipos enumerados permite mejorar la legibilidad de los algoritmos y reducir posibles errores. Para definir un tipo enumerado usaremos la siguiente sintaxis en la sección de tipos:
+\begin{lstlisting}[language = pseudocodigoesp]
+identificador_tipo_enumerado = {elemento1, ..., elementoN}
+\end{lstlisting}
+
+Luego para declarar una variable como este tipo enumerado usaremos dicho identificador.
+
+\subsubsection{Subrango}
+Contiene un rango de valores de otro tipo existente, sea predefinido o definido por el usuario. Para definir un subrango usaremos la siguiente sintaxis en la sección de tipos:
+\begin{lstlisting}[language = pseudocodigoesp]
+identificador_tipo_subrango = limInf .. limSup
+\end{lstlisting}
+
+Para declarar una variable como este tipo subrango usaremos dicho identificador.
+\section{Variables, constantes y expresiones}
+Una \textbf{variable} es un objeto que contiene un valor que puede variar durante la ejecución del programa, mientras que una \textbf{constante} también es un objeto que contiene un valor, pero que, a diferencia de una variable, su valor no cambia.
+
+Para usar una variable primero tenemos que declararla, esto es, asociar un tipo con la misma. En pseudocódigo esto se hace en la sección \pkeyword{var} de la siguiente forma:
+\begin{lstlisting}[language = pseudocodigoesp]
+identificador_del_tipo : identificador_de_la_variable
+\end{lstlisting}
+
+Para usar una constante primero tenemos que definirla, esto es darle un valor. En pseudocódigo esto se hace en la sección \pkeyword{const} de la siguiente forma:
+\begin{lstlisting}[language = pseudocodigoesp]
+identificador_de_la_constante = valor_de_la_constante
+\end{lstlisting}
+\subsection{Asignación}
+Se utiliza para darle valor a una variable y se representa por $\leftarrow$, el formato es:
+\begin{lstlisting}[language = pseudocodigoesp]
+identificador_de_variable <- expresión
+\end{lstlisting}
+
+Esta operación es destructiva, el valor que tenía antes la variable desaparece.
+\subsection{Expresiones aritméticas}
+Las expresiones aritméticas que se pueden realizar vienen resumidas en la siguiente tabla:
+\begin{center}
+  \begin{tabular}{| c | l | c | l}
+    + & Suma & \texttt{|} & OR a nivel de bits\\[8pt]
+    - & Resta & \texttt{\&} & AND a nivel de bits\\[8pt]
+    * & Producto & \pkeyword{xor} & XOR a nivel de bits\\[8pt]
+    / & División entera & &\\[8pt]
+    \pkeyword{div} & División real & &
+  \end{tabular} 
+\end{center}
+\subsection{Expresiones lógicas}
+Las expresiones lógicas que se pueden realizar vienen resumidas den la siguiente tabla:
+
+\begin{center}
+  \begin{tabular}{| c | l |}
+    \pkeyword{no} ó \texttt{!} & Negación lógica\\[8pt]
+    \pkeyword{y} ó \texttt{\&\&} & Conjunción\\[8pt]
+    \pkeyword{o} ó \texttt{||} & Disyunción\\[8pt]
+    \texttt{=} & Igualdad\\[8pt]
+    \texttt{!=} ó \texttt{<>} & Desigualdad\\[8pt]
+    \texttt{$\geq$} ó \texttt{>=} & Mayor o igual \\[8pt]
+    \texttt{$\leq$} ó \texttt{<=} & Menor o igual \\[8pt]
+    \texttt{<} & Menor que \\[8pt]
+    \texttt{>} & Mayor que \\[8pt]
+  \end{tabular} 
+\end{center}
+
+\section{Estructuras de control}
+\subsection{Selectivas}
+Permiten decidir entre varios bloques de código en base a una condición.
+\subsubsection{Simple}
+La estructura general de esta estructura selectiva es:
+\begin{lstlisting}[language = pseudocodigoesp]
+si (condición) entonces
+    // Bloque que se ejecuta únicamente si la condición
+    // es verdadera.
+fin_si
+\end{lstlisting}
+\subsubsection{Doble}
+La estructura general de esta estructura selectiva es:
+\begin{lstlisting}[language = pseudocodigoesp]
+si (condición) entonces
+    // Bloque que se ejecuta únicamente si la condición
+    // es verdadera.
+si_no
+    // Bloque que se ejecuta únicamente si la condición
+    // es falsa.
+fin_si
+\end{lstlisting}
+\subsubsection{Múltiple}
+La estructura general de esta estructura selectiva es:
+\begin{lstlisting}[language = pseudocodigoesp]
+segun_sea (expresión) hacer
+    1:
+        // Bloque de código si la expresión resultante es 1.
+    2:
+        // Bloque de código si la expresión resultante es 2.
+    .
+    .
+    .
+    n:
+        // Bloque de código si la expresión resultante es n.
+    en_otro_caso:
+        // Bloque de código en un caso contrario a los anteriores.
+fin_segun
+\end{lstlisting}
+\subsection{Repetitivas}
+Permiten repetir una o varias instrucciones varias veces en función
+de la evaluación de una determinada condición. A las estructuras repetitivas
+se les denomina \emph{bucles}, y se llama \emph{iteración} a cada repetición de la
+ejecución de la secuencia de instrucciones que forman el llamado
+\emph{cuerpo del bucle}. 
+\subsubsection{Mientras}
+La plantilla de esta estructura repetitiva es:
+\begin{lstlisting}[language = pseudocodigoesp]
+mientras (condición) hacer
+    // cuerpo del bucle
+fin_mientras
+\end{lstlisting}
+\subsubsection{Repetir}
+La plantilla de esta estructura repetitiva es:
+\begin{lstlisting}[language = pseudocodigoesp]
+repetir
+    // cuerpo del bucle
+hasta_que (condición)
+\end{lstlisting}
+
+Esta estructura tiene una peculiaridad, \textbf{se ejecuta mientras la condición se evalúa como falsa}, cuando es verdadera termina su ejecución.
+\subsubsection{Desde}
+La plantilla de esta estructura repetitiva es:
+\begin{lstlisting}[language = pseudocodigoesp, mathescape=true]
+desde i <- $V_i$ hasta $V_f$ hacer
+    // cuerpo del bucle
+fin_desde
+\end{lstlisting}
+
+Por defecto el bucle \pkeyword{desde} aumenta la variable de control en una unidad en cada iteración, podemos cambiar esto poniendo:
+
+\begin{lstlisting}[language = pseudocodigoesp, mathescape=true]
+desde i <- $V_i$ hasta $V_f$ hacer i <- i + n
+    // cuerpo del bucle
+fin_desde
+\end{lstlisting}
+
+Siendo \texttt{n} el valor en el que se quiere incrementar o decrementar \texttt{i} en cada iteración.
+
+\section{Subalgoritmos}
+\subsection{Funciones}
+Para declarar funciones en pseudocódigo usaremos la siguiente plantilla:
+\begin{lstlisting}[language = pseudocodigoesp]
+<especificación_de_la_función>
+<tipo_del_resultado> funcion <nombre_función> (<lista_de_parámetros_formales>)
+    var
+    // Sección de definición de variables locales a la función,
+    // esta sección es opcional.
+    inicio
+    // cuerpo de la función
+    devolver (<expresión_resultado>)
+fin_funcion
+\end{lstlisting}
+Donde:
+\begin{itemize}
+\item \texttt{lista\_de\_parámetros\_formales} es una lista de la siguiente forma:\linebreak\newline\texttt{(\pkeyword{\{E|S|E/S\} tipo1}: param1,{\color{red}...}, \pkeyword{\{E|S|E/S\} tipoN}: paramN)}
+  \begin{itemize} 
+    \item El significado de \pkeyword{E}, \pkeyword{S} y \pkeyword{E/S} se detallará en \ref{subsec:pvr}\nameref{subsec:pvr}.
+    \end{itemize}
+\end{itemize}
+\pagebreak
+\subsection{Procedimientos}
+Para declarar procedimientos en pseudocódigo usaremos la siguiente plantilla:
+\begin{lstlisting}[language = pseudocodigoesp]
+<especificación_del_procedimiento>
+procedimiento <nombre_procedimiento> (<lista_de_parámetros_formales>) 
+    var
+    // Sección de definición de variables locales al procedimiento,
+    // esta sección es opcional.
+    inicio
+    // cuerpo del procedimiento.
+fin_procedimiento
+\end{lstlisting}
+La lista de parámetros formales sigue la misma forma que en la sección anterior. Se puede observar como no hay \pkeyword{devolver}, ya que los procedimientos no devuelven nada.
+\subsection{Paso por valor y por referencia}
+\label{subsec:pvr}
+En el paso por valor se produce una copia del valor de los parámetros actuales en los parámetros formales. Este tipo de parámetros siempre será de entrada y llevarán en su declaración una \pkeyword{E}.
+
+En el paso por referencia tenemos dos casos, en ambos el parámetro formal recibe una referencia del parámetro actual:
+\begin{itemize}
+\item \textbf{Salida} en este tipo solo podemos usar el parámetro formal en un valor izquierdo, es decir, en la parte izquierda de las asignaciones. Se declara poniendo \pkeyword{S}.
+\item \textbf{Entrada/Salida} en este tipo podemos usar el parámetro formal tanto en un valor izquierdo como en uno derecho, es decir podemos usar su valor para calcular cualquier cosa y también podemos guardar valores en el mismo. Se declara poniendo \pkeyword{E/S}.
+\end{itemize}
+
+En el paso por valor los parámetros actuales \textbf{\textit{no se modifican}} mientras que en el paso por referencia \textbf{\textit{pueden modificarse}}.
+
+\section{Ámbito de las variables}
+En pseudocódigo tenemos dos tipos de ámbito:
+\begin{itemize}
+\item \textbf{Global}. Las variables son accesibles y visibles en el resto del código.
+\item \textbf{Local}. Las variables locales son accesibles y visibles solamente en el bloque en el que se definen.
+\end{itemize}
+
+Para declarar una variable \textbf{global} en pseudocódigo debemos escribirla en la sección \pkeyword{var} del \pkeyword{Algoritmo}.
+
+Para declarar una variable \textbf{local} a un bloque en pseudocódigo debemos escribirla en la sección \pkeyword{var} de dicho bloque.
+
+\section{Funciones y procedimientos como parámetros}
+Para pasar funciones o procedimientos como parámetros primero debemos declarar un tipo que sea dicha función o procedimiento siguiendo la siguiente sintaxis:
+
+Para funciones:
+\begin{lstlisting}[language = pseudocodigoesp]
+[tipo_resultado] funcion (<lista_parametros_formales>) : id
+\end{lstlisting}
+
+Para procedimientos:
+\begin{lstlisting}[language = pseudocodigoesp]
+procedimiento (<lista_parametros_formales>) : id
+\end{lstlisting}
+
+Luego se usa dicho tipo como un tipo normal y corriente. Lo único especial que tienen las variables declaradas de este tipo es que pueden ser llamadas como una función.
+\pagebreak
+\begin{appendices}
+  \section{Consideraciones en Vary}
+  \pagebreak
+  \section{Palabras reservadas}
+  \pkeyword{
+  \begin{tabular}{l l l l l }
+    Algoritmo & fin\_algoritmo & inicio & var & tipo  \\[8pt]
+    principal & fin\_principal & mientras & hacer & fin\_mientras \\[8pt]
+    repetir & hasta\_que & desde & hasta & fin\_desde \\[8pt]
+    si & si\_no & fin\_si & segun\_sea & en\_otro\_caso \\[8pt]
+    entonces & vector & de &  matriz & entero \\[8pt]
+    real & logico & caracter & cadena & funcion \\[8pt]
+    fin\_funcion & devolver & procedimiento & fin\_procedimiento & registro\\[8pt]
+    fin\_registro & escribir & leer & archivo & concatena \\[8pt]
+    abrir & cerrar & feof & const & tipos \\[8pt]
+    y & o & no \\
+  \end{tabular}  }
+   \pagebreak
+   \section{Ejemplos}
+   \subsection{Selectiva simple}
+\begin{lstlisting}[language = pseudocodigoesp]
+// Algoritmo: Ejemplo de estructura selectiva simple.
+// Autor: Antonio Vélez Estévez
+// Fecha: 23/04/2016
+ 
+Algoritmo EstructurasSelectiva01
+
+//Sección de definición de variables constantes
+const 
+	
+//Sección de definición de tipos
+tipo
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+	// Definimos la variable condición de tipo lógico, es decir tomará
+	// dos valores únicos, verdadero o falso.
+	logico : condicion
+inicio 	
+
+	// Asignamos a la variable condicion el valor verdadero.
+	condicion <- verdadero
+	
+	// Si el valor de la variable condición es verdadero, entonces
+	// se ejecutará el código que hay entre el entonces y el fin_si.
+	si (condicion = verdadero) entonces
+		escribir("La condicion era verdadera!")
+	fin_si
+	
+	// Asignamos a la variable condicion el valor falso.
+	condicion <- falso
+	
+	// Si el valor de la variable condición es verdadero(nunca pasará
+	// ya que acabamos de establecer la variable condicion a falso)
+	// , entonces se ejecutará el código que hay entre el entonces y el fin_si.
+	si (condicion = verdadero) entonces 
+		escribir("Esto nunca se escribira!")
+	fin_si
+fin_principal
+
+fin_algoritmo
+
+\end{lstlisting}
+\subsection{Selectiva doble}
+\begin{lstlisting}[language = pseudocodigoesp]
+// Algoritmo: Ejemplo de estructura selectiva doble.
+// Autor: Antonio Vélez Estévez
+// Fecha: 23/04/2016
+
+Algoritmo EstructuraSelectiva02
+
+//Sección de definición de variables constantes
+const 
+	
+//Sección de definición de tipos
+tipo
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+	// Definimos la variable condición de tipo lógico, es decir tomará
+	// dos valores únicos, verdadero o falso.
+	logico : condicion
+inicio 	
+
+	// Asignamos a la variable condicion el valor verdadero.
+	condicion <- verdadero
+	
+	// Si el valor de la variable condición es verdadero, entonces
+	// se ejecutará el código que hay entre el entonces y el fin_si.
+	// Si el valor de la variable es falso, entonces se ejecutará,
+	// el código entre el si_no y el fin_si.
+	si (condicion = verdadero) entonces
+		escribir("La condicion era verdadera!")
+	si_no
+		escribir("Esto nunca se escribira!")
+	fin_si
+
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Selectiva múltiple}
+\begin{lstlisting}[language = pseudocodigoesp]
+// Algoritmo: Ejemplo de estructura selectiva múltiple.
+// Autor: Antonio Vélez Estévez
+// Fecha: 23/04/2016
+ 
+Algoritmo EstructurasSelectiva03
+
+//Sección de definición de variables constantes
+const 
+	
+//Sección de definición de tipos
+tipo
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+	// Definimos la variable condición de tipo entero, es decir tomará
+	// valores en dicho conjunto.
+	entero : numero
+inicio 	
+
+	// Le muestra al usuario el siguiente mensaje por la pantalla
+	escribir("Ingrese un numero de un solo digito: ")
+	// Lee un valor y lo guarda en la variable numero.
+	leer(numero)
+	
+	
+	// Segun sea el numero, en el caso de que sea uno, escribira
+	// Su numero es el uno.
+	segun_sea(numero) hacer
+		caso 1: escribir("Su numero es el uno.")
+		caso 2: escribir("Su numero es el dos.")
+		caso 3: escribir("Su numero es el tres.")
+		caso 4: escribir("Su numero es el cuatro.")
+		caso 5: escribir("Su numero es el cinco.")
+		caso 6: escribir("Su numero es el seis.")
+		caso 7: escribir("Su numero es el siete.")
+		caso 8: escribir("Su numero es el ocho.")
+		caso 9: escribir("Su numero es el nueve.")
+		caso 0: escribir("Su numero es el cero.")
+		en_otro_caso: escribir("No se cual es su numero, probablemente
+                haya introducido algo fuera del rango establecido.")
+	fin_segun
+
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Bucle mientras}
+\begin{lstlisting}[language = pseudocodigoesp]
+
+// Algoritmo: Ejemplo de la estructura repetitiva mientras.
+// Autor: Antonio Vélez Estévez
+// Fecha: 23/04/2016
+
+ 
+Algoritmo EstructurasRepetitiva01
+
+//Sección de definición de variables constantes
+const 
+	
+//Sección de definición de tipos
+tipo
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+	// Definimos la variable condición de tipo entero, es decir tomará
+	// valores en dicho conjunto.
+	entero : numero
+inicio 	
+	// Le muestra al usuario el siguiente mensaje por la pantalla
+	escribir("Ingrese un numero de un solo digito: ")
+	// Lee un valor y lo guarda en la variable numero.
+	leer(numero)
+	
+	// Le muestra al usuario el siguiente mensaje por la pantalla
+	escribir("Ahora le mostrare todos los numeros que hay desde el
+        numero que ha introducido hasta el 1000")
+	
+	// Ahora tenemos el número que ha introducido el usuario,
+	// imaginemos que es el 992, como el 992 es menor que el
+	// 1000, se ejecutará el cuerpo del mientras, se escribirá
+	// el numero 992, y se incrementará en uno la variable número.
+	
+	// La última iteración será cuando el valor de numero sea
+	// mil, mil es menor o igual que mil, así que entraríamos
+	// en el cuerpo del mientras, incrementaríamos en uno, y 
+	// tendríamos 1001, al intentar entrar otra vez en el bucle
+	// tenemos que comparar si 1001 es menor o igual que 1000,
+	// cosa que es falsa, así que se sale del bucle y termina.
+	mientras (numero <= 1000) hacer
+		escribir("Voy por el numero ", numero)
+		numero <- numero + 1
+	fin_mientras
+	
+
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Bucle repetir}
+\begin{lstlisting}[language = pseudocodigoesp]
+
+// Algoritmo: Ejemplo de la estructura repetitiva repetir. Algoritmo
+// para hacer un menu.
+// Autor: Antonio Vélez Estévez
+// Fecha: 23/04/2016
+  
+Algoritmo EstructurasRepetitiva02
+
+//Sección de definición de variables constantes
+const 
+	
+//Sección de definición de tipos
+tipo
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+	// Definimos la variable opcion de tipo entero, es decir tomará
+	// valores en dicho conjunto.
+	entero : opcion
+inicio 	
+	// Esta estructura es muy útil para hacer menús
+	// porque al menos se repiten una vez, ya que no
+	// comprueban la condición al principio.
+	
+	repetir
+		escribir("Opcion 1: Volar.")
+		escribir("Opcion 2: Caminar.")
+		escribir("Opcion 3: Nadar.")
+		escribir("Opcion 4: Salir.")
+		escribir("\n Elija una: ")
+		leer(opcion)
+		// Seguirá repitiendo el cuerpo, hasta que opción sea cuatro.
+	hasta_que (opcion = 4)
+	
+	escribir("Usted ha decidido salir")
+
+fin_principal
+fin_algoritmo
+  \end{lstlisting}
+\subsection{Bucle for}
+\begin{lstlisting}[language = pseudocodigoesp]
+// Algoritmo: Ejemplo de la estructura repetitiva desde.
+// Autor: Antonio Vélez Estévez
+// Fecha: 23/04/2016
+ 
+Algoritmo EstructurasRepetitiva03
+
+//Sección de definición de variables constantes
+const 
+	
+//Sección de definición de tipos
+tipo
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+	// Límite inferior del intervalo.
+	entero: limInf
+	// Límite superior del intervalo.
+	entero: limSup
+	// Variable de control del bucle.
+	entero: z
+	// Acumulador.
+	entero: acumulador
+inicio 	
+	// Inicializamos el acumulador a cero.
+	acumulador <- 0
+	
+	escribir("Introduzca el límite inferior del intervalo:")
+	leer(limInf)
+	escribir("\nIntroduzca el límite superior del intervalo")
+	leer(limSup)
+	
+	// Algoritmo para sumar todos los números
+	// en los límites del intervalo [i,j] que
+	// introduzca el usuario.
+	
+	desde z <- limInf hasta limSup hacer
+		acumulador <- acumulador + z
+	fin_desde
+
+	escribir("El resultado de la suma es: ", acumulador)
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Funciones}
+\subsubsection{Paso por valor}
+\begin{lstlisting}[language = pseudocodigoesp, keepspaces]
+// Algoritmo: Ejemplo de funcion con paso por valor
+// Autor: Antonio Vélez Estévez
+// Fecha: 30/06/2016
+ 
+Algoritmo FuncionesPasoValor01
+
+//Sección de definición de variables constantes
+const 
+//Sección de definición de tipos
+tipo
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+real funcion elevar(E real: x, E real: n)
+var
+	entero: resultado
+	entero: i
+inicio
+	resultado <- 1
+	
+	// Si es igual a 0 pasaría del bloque de código y devolvería directamente
+        // el resultado.
+	si(n != 0) entonces
+		si(n > 0) entonces
+			desde i <- 1 hasta n hacer
+				resultado <- resultado * x
+			fin_desde
+		si_no
+			desde i <- 1 hasta -n hacer
+				resultado <- resultado / x
+			fin_desde
+		fin_si
+	fin_si
+	
+	devolver resultado
+fin_funcion
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+         real: base
+        entero: exponente
+         real: resultado
+inicio 	
+	escribir("Introduzca un número: ")
+	leer(base)
+	
+	escribir("Introduzca un exponente: ")
+	leer(exponente)
+
+	escribir("El resultado de la potencia es:", elevar(base, exponente))
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsubsection{Paso por referencia}
+\begin{lstlisting}[language = pseudocodigoesp]
+// Algoritmo: Ejemplo de función con paso por referencia.
+// Realizar una función que dados los parámetros, vector por entrada y un real p
+// or referencia, devuelva la media de los elementos del vector y guarde en el s
+// egundo parámetro la suma de los elementos de dicho vector.
+ 
+// Autor: Antonio Vélez Estévez
+// Fecha: 01/07/2016
+ 
+Algoritmo FuncionesPasoReferencia01
+
+//Sección de definición de variables constantes
+const 
+	MAX = 30
+//Sección de definición de tipos
+tipo
+	vector [MAX] de entero: Vector
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+real funcion operacionesVector(E Vector: vect, E/S real: suma)
+var
+	entero: i
+inicio
+	suma <- 0
+
+	desde i <- 0 hasta MAX - 1 hacer
+		suma <- suma + vect[i]
+	fin_desde
+	
+	devolver suma div MAX
+fin_funcion
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+	entero: i
+	Vector: vect
+	real: media
+	real: suma
+inicio 	
+	desde i <- 0 hasta MAX - 1 hacer
+		vect[i] <- i
+	fin_desde
+	
+	media <- operacionesVector(vect, suma)
+	
+	escribir("La media es ", media)
+	escribir("La suma es", suma)
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Procedimientos}
+\subsubsection{Paso por valor}
+\begin{lstlisting}[language = pseudocodigoesp]
+  
+// Algoritmo: Ejemplo de procedimiento con paso por valor.
+// Autor: Antonio Vélez Estévez
+// Fecha: 30/06/2016
+ 
+Algoritmo ProcedimientosPasoReferencia01
+
+//Sección de definición de variables constantes
+const 
+//Sección de definición de tipos
+tipo
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+procedimiento dimeNumero(E entero: x)
+
+inicio 
+
+	segun_sea(x) hacer
+		caso 1: escribir("Su numero es el uno.")
+		caso 2: escribir("Su numero es el dos.")
+		caso 3: escribir("Su numero es el tres.")
+		caso 4: escribir("Su numero es el cuatro.")
+		caso 5: escribir("Su numero es el cinco.")
+		caso 6: escribir("Su numero es el seis.")
+		caso 7: escribir("Su numero es el siete.")
+		caso 8: escribir("Su numero es el ocho.")
+		caso 9: escribir("Su numero es el nueve.")
+		caso 0: escribir("Su numero es el cero.")
+		en_otro_caso: escribir("No se cual es su numero, probablemente
+                haya introducido algo fuera del rango establecido.")
+	fin_segun
+
+fin_procedimiento
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+	 entero: numero
+inicio 	
+         escribir("Introduzca un número entre 0 y 9 y le diré con
+         letras qué numero es:")
+	 leer(numero)
+	 dimeNumero(numero)
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsubsection{Paso por referencia}
+\begin{lstlisting}[language = pseudocodigoesp]
+// Algoritmo: Ejemplo de procedimiento con paso por referencia
+// Autor: Antonio Vélez Estévez
+// Fecha: 30/06/2016
+
+ 
+Algoritmo ProcedimientosPasoReferencia01
+
+//Sección de definición de variables constantes
+const 
+//Sección de definición de tipos
+tipo
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+procedimiento intercambiar(E/S real: x, E/S real: z)
+var
+	real: aux
+inicio 
+	aux <- x
+	x <- z
+	z <- aux
+fin_procedimiento
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+	real: numero1
+	real: numero2
+inicio 	
+	numero1 <- 5
+	numero2 <- 8
+	escribir("La variable numero1 tiene el valor: ", numero1)
+	escribir("La variable numero2 tiene el valor: ", numero2)
+	
+	escribir("Intercambiando...")
+	
+	intercambiar(numero1, numero2)
+	
+	escribir("La variable numero1 tiene el valor: ", numero1)
+	escribir("La variable numero2 tiene el valor: ", numero2)
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Registros}
+\begin{lstlisting}[language = pseudocodigoesp]
+// Algoritmo: Ejemplo de registro.
+// Autor: Antonio Vélez Estévez
+// Fecha: 01/07/2016
+ 
+Algoritmo Registros01
+
+//Sección de definición de variables constantes
+const 
+//Sección de definición de tipos
+tipo
+	registro: Persona
+		cadena: nombre
+		cadena: apellido
+		entero: edad
+		entero: NIF
+	fin_registro
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+	Persona: per
+inicio 	
+	escribir("Introduzca el nombre de la persona(máx. 30 caracteres):")
+	leer(per.nombre)
+	
+	escribir("Introduzca el apellido de la persona(máx. 30 caracteres):")
+	leer(per.apellido)
+	
+	escribir("Introduzca la edad de la persona:")
+	leer(per.edad)
+	
+	escribir("Introduzca el NIF de la persona:")
+	leer(per.NIF)
+	
+	escribir("Su persona es:")
+	escribir("Nombre: ", per.nombre)
+	escribir("Apellido: ", per.apellido)
+	escribir("Edad: ", per.edad)
+	escribir("NIF: ", per.NIF)
+	
+	
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Registros anidados}
+\begin{lstlisting}[language = pseudocodigoesp]
+/*
+ * Algoritmo: Ejemplo de registros anidados.
+ * Autor: Antonio Vélez Estévez
+ * Fecha: 01/07/2016
+ */
+ 
+Algoritmo RegistrosAnidados01
+
+//Sección de definición de variables constantes
+const 
+//Sección de definición de tipos
+tipo
+	registro: Coche
+		cadena: marca
+		entero: numBastidor
+		cadena: matricula
+	fin_registro
+	
+	registro: Persona
+		cadena: nombre
+		cadena: apellido
+		entero: edad
+		entero: NIF
+		Coche: coche
+	fin_registro
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+	Persona: per
+inicio 	
+	escribir("Introduzca el nombre de la persona(máx. 30 caracteres):")
+	leer(per.nombre)
+	
+	escribir("Introduzca el apellido de la persona(máx. 30 caracteres):")
+	leer(per.apellido)
+	
+	escribir("Introduzca la edad de la persona:")
+	leer(per.edad)
+	
+	escribir("Introduzca el NIF de la persona:")
+	leer(per.NIF)
+	
+	escribir("Introduzca la marca del coche de la persona:")
+	leer(per.coche.marca)
+	
+	escribir("Introduzca el número de bastidor del coche de la persona:")
+	leer(per.coche.numBastidor)
+	
+	escribir("Introduzca la matrícula del coche:")
+	leer(per.coche.matricula)
+	
+	escribir("Su persona es:")
+	escribir("Nombre: ", per.nombre)
+	escribir("Apellido: ", per.apellido)
+	escribir("Edad: ", per.edad)
+	escribir("NIF: ", per.NIF)
+	escribir("Además esta persona tiene un coche cuyos datos son:")
+	escribir("Marca: ", per.coche.marca)
+	escribir("Número de bastidor: ", per.coche.numBastidor)
+	escribir("Matrícula: ", per.coche.matricula)
+	
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Matrices}
+\begin{lstlisting}[language = pseudocodigoesp]
+/*
+ * Algoritmo: Ejemplo de matrices. Comprueba si una matriz es la identidad.
+ * Autor: Antonio Vélez Estévez
+ * Fecha: 01/07/2016
+ */
+ 
+Algoritmo Matrices01
+
+//Sección de definición de variables constantes
+const 
+	MAX = 3
+//Sección de definición de tipos
+tipo
+	matriz [MAX][MAX] de entero: Matriz
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+	Matriz : mat
+	entero : i
+	entero : j
+	logico : esIdentidad
+inicio 	
+        escribir("A continuacion introducira los elementos de la matriz para comprobar
+        si es identidad")
+	desde i <- 0 hasta MAX - 1 hacer
+		desde j <- 0 hasta MAX - 1 hacer
+			escribir("Introduzca el elemento ", i, ", ", j)
+			leer(mat[i][j])
+		fin_desde
+	fin_desde
+
+	esIdentidad <- verdadero
+	
+	i <- 0
+	mientras(i < MAX y esIdentidad) hacer
+		j <- 0
+		mientras(j < MAX y esIdentidad) hacer
+		        // Si estamos en la diagonal el elemento debe ser uno si no,
+                        // no será identidad.
+			si(i = j) entonces
+				si(mat[i][j] != 1) entonces
+					esIdentidad <- falso
+				fin_si
+			// Si no estamos en la diagonal el elemento debe ser cero si
+			// no, no será identidad.
+			si_no
+				si(mat[i][j] != 0) entonces
+					esIdentidad <- falso
+				fin_si
+			fin_si		
+			j <- j + 1
+		fin_mientras
+		i <- i + 1
+	fin_mientras
+	
+	si(esIdentidad = verdadero) entonces
+		escribir("La matriz introducida era la identidad.")
+	si_no
+		escribir("La matriz introducida no era la identidad.")
+	fin_si
+	
+fin_principal
+fin_algoritmo
+\end{lstlisting}
+\subsection{Vectores}
+  \begin{lstlisting}[language = pseudocodigoesp]
+/*
+ * Algoritmo: Ejemplo de vectores.
+ * Autor: Antonio Vélez Estévez
+ * Fecha: 01/07/2016
+ */
+ 
+Algoritmo Vectores01
+
+//Sección de definición de variables constantes
+const 
+	MAX = 10
+//Sección de definición de tipos
+tipo
+	vector [MAX] de entero: Vector
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+
+var
+	Vector : numeros
+	entero : i
+	real   : suma
+	real   : media
+inicio 	
+        escribir("A continuación ingresará una serie de numeros para calcular la
+        media y la suma de los mismos")
+	desde i <- 0 hasta MAX - 1 hacer
+		escribir("Ingrese el elemento ", i)
+		leer(numeros[i])
+		suma <- suma + numeros[i]
+	fin_desde
+	
+	media <- suma div MAX
+	
+	escribir("La media del vector introducido es: ", media)
+	escribir("La suma del vector introducido es:", suma)
+	
+fin_principal
+fin_algoritmo
+  \end{lstlisting}
+\end{appendices}
+\end{document}
+
