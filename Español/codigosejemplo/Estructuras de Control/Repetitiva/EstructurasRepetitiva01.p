@@ -30,7 +30,8 @@ inicio
 	leer(numero)
 	
 	// Le muestra al usuario el siguiente mensaje por la pantalla
-	escribir("Ahora le mostrare todos los numeros que hay desde el numero que ha introducido hasta el 1000")
+	escribir("Ahora le mostrare todos los numeros que hay desde el numero
+                 que ha introducido hasta el 1000")
 	
 	// Ahora tenemos el número que ha introducido el usuario,
 	// imaginemos que es el 992, como el 992 es menor que el

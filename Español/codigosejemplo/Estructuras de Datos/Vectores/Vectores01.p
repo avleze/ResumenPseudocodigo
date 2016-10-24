@@ -25,7 +25,8 @@ var
 	real   : suma
 	real   : media
 inicio 	
-	escribir("A continuación ingresará una serie de numeros para calcular la media y la suma de los mismos")
+	escribir("A continuación ingresará una serie de numeros para calcular
+                 la media y la suma de los mismos")
 	desde i <- 0 hasta MAX - 1 hacer
 		escribir("Ingrese el elemento ", i)
 		leer(numeros[i])

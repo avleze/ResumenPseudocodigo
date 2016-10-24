@@ -44,7 +44,8 @@ inicio
 		caso 8: escribir("Su numero es el ocho.")
 		caso 9: escribir("Su numero es el nueve.")
 		caso 0: escribir("Su numero es el cero.")
-		en_otro_caso: escribir("No se cual es su numero, probablemente haya introducido algo fuera del rango establecido.")
+		en_otro_caso: escribir("No se cual es su numero, probablemente
+                                       haya introducido algo fuera del rango establecido.")
 	fin_segun
 
 fin_principal

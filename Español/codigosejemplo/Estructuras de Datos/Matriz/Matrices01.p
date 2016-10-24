@@ -25,7 +25,8 @@ var
 	entero : j
 	logico : esIdentidad
 inicio 	
-	escribir("A continuacion introducira los elementos de la matriz para comprobar si es identidad")
+	escribir("A continuacion introducira los elementos de la matriz para
+                 comprobar si es identidad")
 	desde i <- 0 hasta MAX - 1 hacer
 		desde j <- 0 hasta MAX - 1 hacer
 			escribir("Introduzca el elemento ", i, ", ", j)
@@ -39,14 +40,14 @@ inicio
 	mientras(i < MAX y esIdentidad) hacer
 		j <- 0
 		mientras(j < MAX y esIdentidad) hacer
-			// Si estamos en la diagonal el elemento debe ser uno si no, no ser
-			// á identidad.
+			// Si estamos en la diagonal el elemento debe ser uno si no,
+			// no será identidad.
 			si(i = j) entonces
 				si(mat[i][j] != 1) entonces
 					esIdentidad <- falso
 				fin_si
-			// Si no estamos en la diagonal el elemento debe ser cero si no, no
-			// será identidad.
+			// Si no estamos en la diagonal el elemento debe ser cero
+			// si no, no será identidad.
 			si_no
 				si(mat[i][j] != 0) entonces
 					esIdentidad <- falso

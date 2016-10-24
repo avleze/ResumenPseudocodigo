@@ -29,7 +29,8 @@ inicio
 		caso 8: escribir("Su numero es el ocho.")
 		caso 9: escribir("Su numero es el nueve.")
 		caso 0: escribir("Su numero es el cero.")
-		en_otro_caso: escribir("No se cual es su numero, probablemente haya introducido algo fuera del rango establecido.")
+		en_otro_caso: escribir("No se cual es su numero, probablemente haya
+                              introducido algo fuera del rango establecido.")
 	fin_segun
 
 fin_procedimiento
@@ -39,7 +40,8 @@ principal
 var
 	 entero: numero
 inicio 	
-	 escribir("Introduzca un número entre 0 y 9 y le diré con letras qué numero es:")
+	 escribir("Introduzca un número entre 0 y 9 y le diré con letras 
+                  qué numero es:")
 	 leer(numero)
 	 dimeNumero(numero)
 fin_principal
