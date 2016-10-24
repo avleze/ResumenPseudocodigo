@@ -1,26 +1,26 @@
 /*
- * Algoritmo: Ejemplo de estructura selectiva múltiple.
- * Autor: Antonio Vélez Estévez
+ * Algoritmo: Ejemplo de estructura selectiva mÃºltiple.
+ * Autor: Antonio VÃ©lez EstÃ©vez
  * Fecha: 23/04/2016
  */
  
 Algoritmo EstructurasSelectiva03
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
 	
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
 
-//Sección de declaración de variables globales	
+//SecciÃ³n de declaraciÃ³n de variables globales	
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
 var
-	// Definimos la variable condición de tipo entero, es decir tomará
+	// Definimos la variable condiciÃ³n de tipo entero, es decir tomarÃ¡
 	// valores en dicho conjunto.
 	entero : numero
 inicio 	

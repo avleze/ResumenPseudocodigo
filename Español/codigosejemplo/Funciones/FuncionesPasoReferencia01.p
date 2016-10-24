@@ -1,25 +1,25 @@
 /*
- * Algoritmo: Ejemplo de funci髇 con paso por referencia.
- * Realizar una funci髇 que dados los par醡etros, vector por entrada y un real p
+ * Algoritmo: Ejemplo de funci贸n con paso por referencia.
+ * Realizar una funci贸n que dados los par谩metros, vector por entrada y un real p
  * or referencia, devuelva la media de los elementos del vector y guarde en el s
- * egundo par醡etro la suma de los elementos de dicho vector.
+ * egundo par谩metro la suma de los elementos de dicho vector.
  * 
- * Autor: Antonio V閘ez Est関ez
+ * Autor: Antonio V茅lez Est茅vez
  * Fecha: 01/07/2016
  */
  
 Algoritmo FuncionesPasoReferencia01
 
-//Secci髇 de definici髇 de variables constantes
+//Secci贸n de definici贸n de variables constantes
 const 
 	MAX = 30
-//Secci髇 de definici髇 de tipos
+//Secci贸n de definici贸n de tipos
 tipo
 	vector [MAX] de entero: Vector
-//Secci髇 de declaraci髇 de variables globales	
+//Secci贸n de declaraci贸n de variables globales	
 var
 
-//Secci髇 de definici髇 de subalgoritmos: funciones y procedimientos	
+//Secci贸n de definici贸n de subalgoritmos: funciones y procedimientos	
 real funcion operacionesVector(E Vector: vect, E/S real: suma)
 var
 	entero: i

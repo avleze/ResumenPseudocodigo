@@ -1,22 +1,22 @@
 /*
  * Algoritmo: Ejemplo de mezcla de estructuras de control. Buscar los
  * elementos repetidos en un vector.
- * Autor: Antonio Vélez Estévez
+ * Autor: Antonio VÃ©lez EstÃ©vez
  * Fecha: 30/06/2016
  */
  
 Algoritmo EstructurasControlMezcla03
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
 	MAX = 30
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
 	vector [MAX] de entero: Vector
-//Sección de declaración de variables globales	
+//SecciÃ³n de declaraciÃ³n de variables globales	
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
@@ -25,9 +25,9 @@ principal
 	entero: i
 	// Variable de control del segundo bucle.
 	entero: j
-	// Vector de elementos donde tenemos que mirar si están repetidos.
+	// Vector de elementos donde tenemos que mirar si estÃ¡n repetidos.
 	Vector: elementos
-	// Último indice usado para el vector de los elementos que ya se han mirado
+	// Ãšltimo indice usado para el vector de los elementos que ya se han mirado
 	entero: indice
 	// Ya contados.
 	Vector: repetidos
@@ -36,14 +36,14 @@ principal
 inicio 	
 
 	encontrado <- falso
-	// En principio el vector no contiene ningún elemento así que el índice est
-	// ará en -1.
+	// En principio el vector no contiene ningÃºn elemento asÃ­ que el Ã­ndice est
+	// arÃ¡ en -1.
 	indice <- (-(1))
 	
-	/* Inicializamos el vector de elementos con una sucesión sin elementos repe
-	 * tidos es decir, 1, 2, 3, ..., i. Para comprobar que funciona bien la bús
+	/* Inicializamos el vector de elementos con una sucesiÃ³n sin elementos repe
+	 * tidos es decir, 1, 2, 3, ..., i. Para comprobar que funciona bien la bÃºs
 	 * queda de elementos repetidos podemos probar con i mod n, siendo n cualqu
-	 * ier número.
+	 * ier nÃºmero.
 	 */ 
 	desde i <- 0 hasta MAX - 1 hacer
 		elementos[i] <- i
@@ -58,9 +58,9 @@ inicio
 		encontrado <- falso
 		
 		/*
-		 * Aquí comprobamos si el elemento en el que hemos establecido el pivot
+		 * AquÃ­ comprobamos si el elemento en el que hemos establecido el pivot
 		 * e se ha establecido ya como repetido o no, para no volverlo a poner
-		 * más veces.
+		 * mÃ¡s veces.
 		 */
 		mientras (j <= indice y no (encontrado)) hacer
 			si (elementos[i] = repetidos[j]) entonces
@@ -69,24 +69,24 @@ inicio
 			j <- j + 1
 		fin_mientras	
 		
-		// Si no está, pues miramos si está repetido
+		// Si no estÃ¡, pues miramos si estÃ¡ repetido
 		si (encontrado = falso) entonces
 			/* 
-			 * Comenzamos por una posición posterior a la del elemento que toma
+			 * Comenzamos por una posiciÃ³n posterior a la del elemento que toma
 			 * mos como pivote, ya que si hubiese habido un elemento igual antes
-			 * de éste, ya estaría en el vector de contados y no haría falta vol
-			 * ver a mirar si está repetido.
+			 * de Ã©ste, ya estarÃ­a en el vector de contados y no harÃ­a falta vol
+			 * ver a mirar si estÃ¡ repetido.
 			 */
 			j <- i + 1
 			repetido <- falso
 			
 			mientras (j != MAX y no (repetido)) hacer
 				/* 
-				 * Si está repetido, ponemos la variable repetido a verdadero y
-				 * añadimos dicho elemento al vector de elementos contados. Ade
-				 * más incrementamos el índice, es importante incrementar prime
-				 * ro y luego asignar en este caso, ya que en principio el índi
-				 * ce está a -1 y es es un índice no válido.
+				 * Si estÃ¡ repetido, ponemos la variable repetido a verdadero y
+				 * aÃ±adimos dicho elemento al vector de elementos contados. Ade
+				 * mÃ¡s incrementamos el Ã­ndice, es importante incrementar prime
+				 * ro y luego asignar en este caso, ya que en principio el Ã­ndi
+				 * ce estÃ¡ a -1 y es es un Ã­ndice no vÃ¡lido.
 				 */
 				si(elementos[i] = elementos[j]) entonces
 					repetido <- verdadero
@@ -100,8 +100,8 @@ inicio
 		fin_si
 	fin_desde
 	
-	// Con el siguiente bucle mostraremos los elementos repetidos, que están al
-	// macenados en el vector "contados" hasta la posición indice.
+	// Con el siguiente bucle mostraremos los elementos repetidos, que estÃ¡n al
+	// macenados en el vector "contados" hasta la posiciÃ³n indice.
 	
 	escribir("Los elementos repetidos son:")
 	desde i <- 0 hasta indice hacer

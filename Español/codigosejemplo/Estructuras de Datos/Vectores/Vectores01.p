@@ -1,20 +1,20 @@
 /*
  * Algoritmo: Ejemplo de vectores.
- * Autor: Antonio VÈlez EstÈvez
+ * Autor: Antonio V√©lez Est√©vez
  * Fecha: 01/07/2016
  */
  
 Algoritmo Vectores01
 
-//SecciÛn de definiciÛn de variables constantes
+//Secci√≥n de definici√≥n de variables constantes
 const 
 	MAX = 10
-//SecciÛn de definiciÛn de tipos
+//Secci√≥n de definici√≥n de tipos
 tipo
 	vector [MAX] de entero: Vector
 var
 
-//SecciÛn de definiciÛn de subalgoritmos: funciones y procedimientos	
+//Secci√≥n de definici√≥n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
@@ -25,7 +25,7 @@ var
 	real   : suma
 	real   : media
 inicio 	
-	escribir("A continuaciÛn ingresar· una serie de numeros para calcular la media y la suma de los mismos")
+	escribir("A continuaci√≥n ingresar√° una serie de numeros para calcular la media y la suma de los mismos")
 	desde i <- 0 hasta MAX - 1 hacer
 		escribir("Ingrese el elemento ", i)
 		leer(numeros[i])

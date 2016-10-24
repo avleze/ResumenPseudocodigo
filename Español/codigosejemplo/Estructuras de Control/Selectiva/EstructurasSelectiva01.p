@@ -1,33 +1,33 @@
 // Algoritmo: Ejemplo de estructura selectiva simple.
-// Autor: Antonio Vélez Estévez
+// Autor: Antonio VÃ©lez EstÃ©vez
 // Fecha: 23/04/2016
  
 Algoritmo EstructurasSelectiva01
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
 	
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
 
-//Sección de declaración de variables globales	
+//SecciÃ³n de declaraciÃ³n de variables globales	
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
 var
-	// Definimos la variable condición de tipo lógico, es decir tomará
-	// dos valores únicos, verdadero o falso.
+	// Definimos la variable condiciÃ³n de tipo lÃ³gico, es decir tomarÃ¡
+	// dos valores Ãºnicos, verdadero o falso.
 	logico : condicion
 inicio 	
 
 	// Asignamos a la variable condicion el valor verdadero.
 	condicion <- verdadero
 	
-	// Si el valor de la variable condición es verdadero, entonces
-	// se ejecutará el código que hay entre el entonces y el fin_si.
+	// Si el valor de la variable condiciÃ³n es verdadero, entonces
+	// se ejecutarÃ¡ el cÃ³digo que hay entre el entonces y el fin_si.
 	si (condicion = verdadero) entonces
 		escribir("La condicion era verdadera!")
 	fin_si
@@ -35,9 +35,9 @@ inicio
 	// Asignamos a la variable condicion el valor falso.
 	condicion <- falso
 	
-	// Si el valor de la variable condición es verdadero(nunca pasará
+	// Si el valor de la variable condiciÃ³n es verdadero(nunca pasarÃ¡
 	// ya que acabamos de establecer la variable condicion a falso)
-	// , entonces se ejecutará el código que hay entre el entonces y el fin_si.
+	// , entonces se ejecutarÃ¡ el cÃ³digo que hay entre el entonces y el fin_si.
 	si (condicion = verdadero) entonces 
 		escribir("Esto nunca se escribira!")
 	fin_si

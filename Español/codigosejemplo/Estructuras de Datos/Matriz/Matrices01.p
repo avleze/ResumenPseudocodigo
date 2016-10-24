@@ -1,20 +1,20 @@
 /*
  * Algoritmo: Ejemplo de matrices. Comprueba si una matriz es la identidad.
- * Autor: Antonio Vélez Estévez
+ * Autor: Antonio VÃ©lez EstÃ©vez
  * Fecha: 01/07/2016
  */
  
 Algoritmo Matrices01
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
 	MAX = 3
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
 	matriz [MAX][MAX] de entero: Matriz
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
@@ -40,13 +40,13 @@ inicio
 		j <- 0
 		mientras(j < MAX y esIdentidad) hacer
 			// Si estamos en la diagonal el elemento debe ser uno si no, no ser
-			// á identidad.
+			// Ã¡ identidad.
 			si(i = j) entonces
 				si(mat[i][j] != 1) entonces
 					esIdentidad <- falso
 				fin_si
 			// Si no estamos en la diagonal el elemento debe ser cero si no, no
-			// será identidad.
+			// serÃ¡ identidad.
 			si_no
 				si(mat[i][j] != 0) entonces
 					esIdentidad <- falso

@@ -1,33 +1,33 @@
 /*
  * Algoritmo: Ejemplo de la estructura repetitiva repetir. Algoritmo
  * para hacer un menu.
- * Autor: Antonio Vélez Estévez
+ * Autor: Antonio VÃ©lez EstÃ©vez
  * Fecha: 23/04/2016
  */
  
 Algoritmo EstructurasRepetitiva02
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
 	
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
 
-//Sección de declaración de variables globales	
+//SecciÃ³n de declaraciÃ³n de variables globales	
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
 var
-	// Definimos la variable opcion de tipo entero, es decir tomará
+	// Definimos la variable opcion de tipo entero, es decir tomarÃ¡
 	// valores en dicho conjunto.
 	entero : opcion
 inicio 	
-	// Esta estructura es muy útil para hacer menús
+	// Esta estructura es muy Ãºtil para hacer menÃºs
 	// porque al menos se repiten una vez, ya que no
-	// comprueban la condición al principio.
+	// comprueban la condiciÃ³n al principio.
 	
 	repetir
 		escribir("Opcion 1: Volar.")
@@ -36,7 +36,7 @@ inicio
 		escribir("Opcion 4: Salir.")
 		escribir("\n Elija una: ")
 		leer(opcion)
-		// Seguirá repitiendo el cuerpo, hasta que opción sea cuatro.
+		// SeguirÃ¡ repitiendo el cuerpo, hasta que opciÃ³n sea cuatro.
 	hasta_que (opcion = 4)
 	
 	escribir("Usted ha decidido salir")

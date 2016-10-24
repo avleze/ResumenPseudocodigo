@@ -1,15 +1,15 @@
 /*
  * Algoritmo: Ejemplo de registro.
  * 
- * Autor: Antonio V閘ez Est関ez
+ * Autor: Antonio V茅lez Est茅vez
  * Fecha: 01/07/2016
  */
  
 Algoritmo Registros01
 
-//Secci髇 de definici髇 de variables constantes
+//Secci贸n de definici贸n de variables constantes
 const 
-//Secci髇 de definici髇 de tipos
+//Secci贸n de definici贸n de tipos
 tipo
 	vector [30] de caracter: Cadena
 	registro: Persona
@@ -18,10 +18,10 @@ tipo
 		entero: edad
 		entero: NIF
 	fin_registro
-//Secci髇 de declaraci髇 de variables globales	
+//Secci贸n de declaraci贸n de variables globales	
 var
 
-//Secci髇 de definici髇 de subalgoritmos: funciones y procedimientos	
+//Secci贸n de definici贸n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
@@ -29,10 +29,10 @@ principal
 var
 	Persona: per
 inicio 	
-	escribir("Introduzca el nombre de la persona(m醲. 30 caracteres):")
+	escribir("Introduzca el nombre de la persona(m谩x. 30 caracteres):")
 	leer(per.nombre)
 	
-	escribir("Introduzca el apellido de la persona(m醲. 30 caracteres):")
+	escribir("Introduzca el apellido de la persona(m谩x. 30 caracteres):")
 	leer(per.apellido)
 	
 	escribir("Introduzca la edad de la persona:")

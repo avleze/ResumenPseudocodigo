@@ -1,19 +1,19 @@
 /*
  * Algoritmo: Ejemplo de procedimiento con paso por referencia
- * Autor: Antonio V閘ez Est関ez
+ * Autor: Antonio V茅lez Est茅vez
  * Fecha: 30/06/2016
  */
  
 Algoritmo ProcedimientosPasoReferencia01
 
-//Secci髇 de definici髇 de variables constantes
+//Secci贸n de definici贸n de variables constantes
 const 
-//Secci髇 de definici髇 de tipos
+//Secci贸n de definici贸n de tipos
 tipo
-//Secci髇 de declaraci髇 de variables globales	
+//Secci贸n de declaraci贸n de variables globales	
 var
 
-//Secci髇 de definici髇 de subalgoritmos: funciones y procedimientos	
+//Secci贸n de definici贸n de subalgoritmos: funciones y procedimientos	
 procedimiento intercambiar(E/S real: x, E/S real: z)
 var
 	real: aux

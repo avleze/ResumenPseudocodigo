@@ -1,28 +1,28 @@
 /*
  * Algoritmo: Ejemplo de mezcla de estructuras de control.
- * Autor: Antonio Vélez Estévez
+ * Autor: Antonio VÃ©lez EstÃ©vez
  * Fecha: 29/06/2016
  */
  
 Algoritmo EstructurasControlMezcla02
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
 	
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
 
-//Sección de declaración de variables globales	
+//SecciÃ³n de declaraciÃ³n de variables globales	
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
 	var
-	// Límite inferior del intervalo.
+	// LÃ­mite inferior del intervalo.
 	entero: limInf
-	// Límite superior del intervalo.
+	// LÃ­mite superior del intervalo.
 	entero: limSup
 	// Variable de control del bucle.
 	entero: z
@@ -32,13 +32,13 @@ inicio
 	// Inicializamos el acumulador a cero.
 	acumulador <- 0
 	
-	// Este algoritmo irá sumando los números impares en 
-	// el intervalo que introduzca el usuario y dará la 
+	// Este algoritmo irÃ¡ sumando los nÃºmeros impares en 
+	// el intervalo que introduzca el usuario y darÃ¡ la 
 	// suma final.
 		
-	escribir("Introduzca el límite inferior del intervalo:")
+	escribir("Introduzca el lÃ­mite inferior del intervalo:")
 	leer(limInf)
-	escribir("\nIntroduzca el límite superior del intervalo")
+	escribir("\nIntroduzca el lÃ­mite superior del intervalo")
 	leer(limSup)
 	
 	desde z <- limInf hasta limSup hacer

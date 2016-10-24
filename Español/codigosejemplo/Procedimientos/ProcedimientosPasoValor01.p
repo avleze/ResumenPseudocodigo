@@ -1,19 +1,19 @@
 /*
  * Algoritmo: Ejemplo de procedimiento con paso por valor.
- * Autor: Antonio Vélez Estévez
+ * Autor: Antonio VÃ©lez EstÃ©vez
  * Fecha: 30/06/2016
  */
  
 Algoritmo ProcedimientosPasoReferencia01
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
-//Sección de declaración de variables globales	
+//SecciÃ³n de declaraciÃ³n de variables globales	
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 procedimiento dimeNumero(E entero: x)
 
 inicio 
@@ -39,7 +39,7 @@ principal
 var
 	 entero: numero
 inicio 	
-	 escribir("Introduzca un número entre 0 y 9 y le diré con letras qué numero es:")
+	 escribir("Introduzca un nÃºmero entre 0 y 9 y le dirÃ© con letras quÃ© numero es:")
 	 leer(numero)
 	 dimeNumero(numero)
 fin_principal

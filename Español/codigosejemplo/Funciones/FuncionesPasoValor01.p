@@ -1,19 +1,19 @@
 /*
  * Algoritmo: Ejemplo de funcion con paso por valor
- * Autor: Antonio V閘ez Est関ez
+ * Autor: Antonio V茅lez Est茅vez
  * Fecha: 30/06/2016
  */
  
 Algoritmo FuncionesPasoValor01
 
-//Secci髇 de definici髇 de variables constantes
+//Secci贸n de definici贸n de variables constantes
 const 
-//Secci髇 de definici髇 de tipos
+//Secci贸n de definici贸n de tipos
 tipo
-//Secci髇 de declaraci髇 de variables globales	
+//Secci贸n de declaraci贸n de variables globales	
 var
 
-//Secci髇 de definici髇 de subalgoritmos: funciones y procedimientos	
+//Secci贸n de definici贸n de subalgoritmos: funciones y procedimientos	
 real funcion elevar(E real: x, E real: n)
 var
 	entero: resultado
@@ -21,7 +21,7 @@ var
 inicio
 	resultado <- 1
 	
-	// Si es igual a 0 pasar韆 del bloque de c骴igo y devolver韆 directamente e
+	// Si es igual a 0 pasar铆a del bloque de c贸digo y devolver铆a directamente e
 	// l resultado.
 	si(n != 0) entonces
 		si(n > 0) entonces
@@ -45,7 +45,7 @@ var
 	entero: exponente
 	real: resultado
 inicio 	
-	escribir("Introduzca un n鷐ero: ")
+	escribir("Introduzca un n煤mero: ")
 	leer(base)
 	
 	escribir("Introduzca un exponente: ")

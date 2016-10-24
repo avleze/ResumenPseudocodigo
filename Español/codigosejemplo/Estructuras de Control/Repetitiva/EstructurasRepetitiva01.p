@@ -1,26 +1,26 @@
 /*
  * Algoritmo: Ejemplo de la estructura repetitiva mientras.
- * Autor: Antonio Vélez Estévez
+ * Autor: Antonio VÃ©lez EstÃ©vez
  * Fecha: 23/04/2016
  */
  
 Algoritmo EstructurasRepetitiva01
 
-//Sección de definición de variables constantes
+//SecciÃ³n de definiciÃ³n de variables constantes
 const 
 	
-//Sección de definición de tipos
+//SecciÃ³n de definiciÃ³n de tipos
 tipo
 
-//Sección de declaración de variables globales	
+//SecciÃ³n de declaraciÃ³n de variables globales	
 var
 
-//Sección de definición de subalgoritmos: funciones y procedimientos	
+//SecciÃ³n de definiciÃ³n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
 var
-	// Definimos la variable condición de tipo entero, es decir tomará
+	// Definimos la variable condiciÃ³n de tipo entero, es decir tomarÃ¡
 	// valores en dicho conjunto.
 	entero : numero
 inicio 	
@@ -32,17 +32,17 @@ inicio
 	// Le muestra al usuario el siguiente mensaje por la pantalla
 	escribir("Ahora le mostrare todos los numeros que hay desde el numero que ha introducido hasta el 1000")
 	
-	// Ahora tenemos el número que ha introducido el usuario,
+	// Ahora tenemos el nÃºmero que ha introducido el usuario,
 	// imaginemos que es el 992, como el 992 es menor que el
-	// 1000, se ejecutará el cuerpo del mientras, se escribirá
-	// el numero 992, y se incrementará en uno la variable número.
+	// 1000, se ejecutarÃ¡ el cuerpo del mientras, se escribirÃ¡
+	// el numero 992, y se incrementarÃ¡ en uno la variable nÃºmero.
 	
-	// La última iteración será cuando el valor de numero sea
-	// mil, mil es menor o igual que mil, así que entraríamos
-	// en el cuerpo del mientras, incrementaríamos en uno, y 
-	// tendríamos 1001, al intentar entrar otra vez en el bucle
+	// La Ãºltima iteraciÃ³n serÃ¡ cuando el valor de numero sea
+	// mil, mil es menor o igual que mil, asÃ­ que entrarÃ­amos
+	// en el cuerpo del mientras, incrementarÃ­amos en uno, y 
+	// tendrÃ­amos 1001, al intentar entrar otra vez en el bucle
 	// tenemos que comparar si 1001 es menor o igual que 1000,
-	// cosa que es falsa, así que se sale del bucle y termina.
+	// cosa que es falsa, asÃ­ que se sale del bucle y termina.
 	mientras (numero <= 1000) hacer
 		escribir("Voy por el numero ", numero)
 		numero <- numero + 1

@@ -1,15 +1,15 @@
 /*
  * Algoritmo: Ejemplo de registros anidados.
- * Autor: Antonio V閘ez Est関ez
+ * Autor: Antonio V茅lez Est茅vez
  * Fecha: 01/07/2016
  */
  
 Algoritmo RegistrosAnidados01
 
-//Secci髇 de definici髇 de variables constantes
+//Secci贸n de definici贸n de variables constantes
 const 
 	MAX = 30
-//Secci髇 de definici髇 de tipos
+//Secci贸n de definici贸n de tipos
 tipo
 	vector [30] de caracter: Cadena
 	registro: Coche
@@ -25,10 +25,10 @@ tipo
 		entero: NIF
 		Coche: coche
 	fin_registro
-//Secci髇 de declaraci髇 de variables globales	
+//Secci贸n de declaraci贸n de variables globales	
 var
 
-//Secci髇 de definici髇 de subalgoritmos: funciones y procedimientos	
+//Secci贸n de definici贸n de subalgoritmos: funciones y procedimientos	
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
@@ -36,10 +36,10 @@ principal
 var
 	Persona: per
 inicio 	
-	escribir("Introduzca el nombre de la persona(m醲. 30 caracteres):")
+	escribir("Introduzca el nombre de la persona(m谩x. 30 caracteres):")
 	leer(per.nombre)
 	
-	escribir("Introduzca el apellido de la persona(m醲. 30 caracteres):")
+	escribir("Introduzca el apellido de la persona(m谩x. 30 caracteres):")
 	leer(per.apellido)
 	
 	escribir("Introduzca la edad de la persona:")
@@ -51,10 +51,10 @@ inicio
 	escribir("Introduzca la marca del coche de la persona:")
 	leer(per.coche.marca)
 	
-	escribir("Introduzca el n鷐ero de bastidor del coche de la persona:")
+	escribir("Introduzca el n煤mero de bastidor del coche de la persona:")
 	leer(per.coche.numBastidor)
 	
-	escribir("Introduzca la matr韈ula del coche:")
+	escribir("Introduzca la matr铆cula del coche:")
 	leer(per.coche.matricula)
 	
 	escribir("Su persona es:")
@@ -62,10 +62,10 @@ inicio
 	escribir("Apellido: ", per.apellido)
 	escribir("Edad: ", per.edad)
 	escribir("NIF: ", per.NIF)
-	escribir("Adem醩 esta persona tiene un coche cuyos datos son:")
+	escribir("Adem谩s esta persona tiene un coche cuyos datos son:")
 	escribir("Marca: ", per.coche.marca)
-	escribir("N鷐ero de bastidor: ", per.coche.numBastidor)
-	escribir("Matr韈ula: ", per.coche.matricula)
+	escribir("N煤mero de bastidor: ", per.coche.numBastidor)
+	escribir("Matr铆cula: ", per.coche.matricula)
 	
 fin_principal
 fin_algoritmo
